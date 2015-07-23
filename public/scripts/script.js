@@ -1,11 +1,21 @@
 
 $(function() {
   // checking if im connected 
-  console.log('checking if connectedI')
+  console.log(' checking if connected! ')
 
-  // var baseUrl = "http://localhost:3000" // DEV
-  var baseUrl = "https://mycrazyex.herokuapp.com/" // PRD
+  // var baseUrl = "http://localhost:3000" 
+  var baseUrl = "https://mycrazyex.herokuapp.com/" 
   
+// 
+
+
+// template here? 
+
+
+// 
+
+
+  // Adam's PickUp Lines code
   // $story = _.template( $("#storyTemplate").html() )
 
   // $.get(baseUrl + '/api/stories', function(data) {
@@ -29,4 +39,39 @@ $(function() {
   //   })
 
   // })
-})
+
+//log in form 
+  $('login-form').on("submit", function(event) {
+    var userData = {  
+      email:$("#login-user-email").val(),
+      password:("#login-user-password").val()
+    };
+   $.post('/login', function(response) {
+      console.log(response);
+   });
+  });
+});
+// when the page loads: check and chage login message
+// $get.('/currentuser', function(response) {
+//   // server responds with current user
+//   if response ===n null){
+//   //no one is logged in
+//   $("#loggedInMessage").html("You're definitely not logged in as " + user )
+
+//  }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

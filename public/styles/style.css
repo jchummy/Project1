@@ -1,3 +1,9 @@
+/*stories*/
+ul li {
+ list-style: none; 
+}
+
+
 /*login form css*/
 body {
 	background: #eee !important;	
@@ -50,4 +56,3 @@ body {
 }
 
 
-//
