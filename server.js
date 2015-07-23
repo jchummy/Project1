@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var session = require('express-session');
+var Story = require('./models/story')
 
 // connect to mongodb
 mongoose.connect(
@@ -65,28 +66,28 @@ app.get('/', function(req, res) {
   res.sendFile(index);
 });
 
-// LINES#QUERY
-app.get('/api/lines', function(req, res) {
-  console.log(Line);
-  Line.find().sort('-_id').exec(function(err, lines) {
-    console.log(lines);
-    res.json(lines);
+// LINES#QUERY GETTING ALL THE STORIES ONTO THE PAGE
+app.get('/stories', function(req, res) {
+  // console.log(Story);
+  Story.find(function (err, stories) {
+    res.json(stories)
   });
+  // Story.find().sort('__id').exec(function(err, stories) {
 });
 
 // LINES#CREATE
-app.post('/api/lines', function(req, res) {
+app.post('/stories', function(req, res) {
   // SAVE LINE TO DB
-  var line = new Line({
-    text: req.body.text
+  var newStory = new Story({
+    storyText: req.body.storyText
   });
 
-  line.save(function(err, line) {
-    res.json(line);
+  newStory.save(function(err, savedStory) {
+    res.json(savedStory);
   });
 });
 
-//////////
+
 
 
 

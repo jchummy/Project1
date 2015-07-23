@@ -7,63 +7,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-     <!-- latest compiled and minified CSS -->
+<!-- latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <!-- custom styles -->
+<!-- custom styles -->
     <link type="text/css" rel="stylesheet" href="styles/style.css">
 
   </head>
 
-  <!-- /////////jumbotron -->
- <!--  <body>
+<!-- /////////jumbotron -->
+ <body>
+  <div class="container">
     <div class="jumbotron">
   <h1>MyCrazyEx</h1>
   <p> Have you ever been in a relationship with someone that was a tad bit on the crazy side? Anonymously share crazy stories about an ex-boyfriend or ex-girlfriend. </p>
 </div>
- -->
 
-<!-- left side column (logo and form) -->     
-      <div class="col-sm-3" id="storyForm">
-      <h1>Description of story:</h1>
-        <form id="submitStory">
+<!-- JANES CODE -->
+<div class="row" style="text-align: center;">
+  <div class="col-md-3">
 
-          <!-- comment form --> 
-          <div class="form-group">
-            <input type="text" class="form-control" id="storyText" placeholder=" My crazy ex..."_" " autofocus>
-          </div>
-          <!-- submit button -->
-          <div class="form-group">
-            <input type="submit" class="btn btn-success" value="Share your story.">
-          </div>
-        </form>
-      </div>
-<!-- end of left column -->
+    <!-- bootsnipp story form -->
+<form class="form-horizontal" id="story-form">
+<fieldset>
 
-  <!-- middle column with stories listed -->
+<!-- Form Name
+<legend>Share your story:</legend>
 
-<div class="container">
-    <div class="row">
-      <div class="col-sm-6">
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Description</label>
+  <div class="controls">                     
+    <textarea id="textarea" name="textarea">Type here</textarea>
+  </div>
+</div>
 
-      <!-- <div class="col-sm-6" id="postedStories"> -->
-        <h1> S T O R I E S </h1>
-        <div id="listOfStories"></div>
+<!-- Button Drop Down -->
+<div class="control-group">
+  <label class="control-label" for="buttondropdown">Psycho Level </label>
+  <div class="controls">
+    <div class="input-append">
+      <input id="buttondropdown" name="buttondropdown" class="input-xlarge" placeholder="Select Level " type="text">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+          Select 
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Form for login on right column  -->
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Your Location</label>
+  <div class="controls">
+    <input id="textinput" name="textinput" type="text" placeholder="San Francisco, CA" class="input-xlarge">
+    
+  </div>
+</div>
 
-<!-- <div class="wrapper">
-    <form class="form-signin">       
-      <h2 class="form-signin-heading">Please login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
-    </form>
-</div> -->
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Post</button>
+  </div>
+</div>
 
-  
+</fieldset>
+ </form>
+<!-- end of bootsnipp story form -->
+
+    <!-- left side column (logo and form) -->     
+   <!--  <div id="storyForm">
+      <h1>Description of story:</h1>
+      <form id="submitStory">
+ -->
+        <!-- comment form --> 
+        <!-- <div class="form-group">
+          <input type="text" class="form-control" id="storyText" placeholder=" My crazy ex..."_" " autofocus>
+        </div> -->
+        <!-- submit button -->
+        <!-- <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Share your story">
+        </div>
+      </form>
+    </div> -->
+ <!-- end of left column -->
+  </div>
+    <div class="col-md-6">
+   <!-- middle column with stories listed -->
+      <div class="row">
+        <div id="postedStories">
+          <h1> STORIES </h1>
+          <div id="story-list"></div>
+        </div>
+      </div>   
+    </div>
+    <div class="col-md-3">
+   <!-- Form for login on right column  -->
+      <div class="wrapper">
+        <form class="form-signin">       
+          <h2 class="form-signin-heading">Please login</h2>
+          <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+          <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+        </form>
+      </div>
+    </div>
+</div>
+
+  </div>  
 
 <!-- underscore -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -73,9 +132,16 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <!-- custom scripts -->
 <script type="text/javascript" src="scripts/script.js"></script>
+<script type="text/template" id="storiesTemplate"></script>
 
-<!-- template here? -->
 
-<!-- <script src="script.js"></script> -->
+<!-- template -->
+<script id="storyTemplate" type="text/template">
+  <li class='story'>
+    <p ><%= storyText %></p>
+  </li>
+</script>
+
+
   </body>
 </html>
