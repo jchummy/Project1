@@ -58,6 +58,13 @@ app.get('/', function(req, res) {
 });
 //////////
 
+// OPEN THE API TO REQUESTS FROM ANY DOMAIN
+
+app.get('/', function(req, res) {
+  var index = __dirname + "/index.html";
+  res.sendFile(index);
+});
+
 // LINES#QUERY
 app.get('/api/lines', function(req, res) {
   console.log(Line);

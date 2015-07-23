@@ -1,3 +1,4 @@
+//serverside 
 // require mongoose and other modules
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
