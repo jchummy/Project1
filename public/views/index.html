@@ -35,27 +35,28 @@
 
 <!-- Textarea -->
 <div class="control-group">
-  <label class="control-label" for="textarea">Description</label>
+  <label class="control-label" for="textarea">Description: </label>
   <div class="controls">                     
-    <textarea id="textarea" name="textarea">Type here</textarea>
+    <textarea id="storyText">Type here</textarea>
   </div>
 </div>
 
 <!-- Button Drop Down -->
 <div class="control-group">
-  <label class="control-label" for="buttondropdown">Psycho Level </label>
+  <label class="control-label" for="buttondropdown">Psycho Level: </label>
   <div class="controls">
     <div class="input-append">
-      <input id="buttondropdown" name="buttondropdown" class="input-xlarge" placeholder="Select Level " type="text">
+      <input id="storyLevel" class="input-xlarge" placeholder="Select Level " type="text">
       <div class="btn-group">
         <button class="btn dropdown-toggle" data-toggle="dropdown">
-          Select 
+          Levels here 
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
+          <li><a href="#">Weird</a></li>
+          <li><a href="#">Crazy</a></li>
+          <li><a href="#">Psycho</a></li>
+          <li><a href="#">Dangerously Psycho</a></li>
         </ul>
       </div>
     </div>
@@ -66,7 +67,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Your Location</label>
   <div class="controls">
-    <input id="textinput" name="textinput" type="text" placeholder="San Francisco, CA" class="input-xlarge">
+    <input id="storyLocation" type="text" placeholder="San Francisco, CA" class="input-xlarge">
     
   </div>
 </div>
@@ -98,10 +99,10 @@
         </div>
       </form>
     </div> -->
- <!-- end of left column -->
+<!-- end of left column -->
   </div>
     <div class="col-md-6">
-   <!-- middle column with stories listed -->
+<!-- middle column with stories listed -->
       <div class="row">
         <div id="postedStories">
           <h1> STORIES </h1>
@@ -110,7 +111,7 @@
       </div>   
     </div>
     <div class="col-md-3">
-   <!-- Form for login on right column  -->
+<!-- Form for login on right column  -->
       <div class="wrapper">
         <form class="form-signin">       
           <h2 class="form-signin-heading">Please login</h2>
@@ -139,6 +140,9 @@
 <script id="storyTemplate" type="text/template">
   <li class='story'>
     <p ><%= storyText %></p>
+    <p ><%= storyLevel %></p>
+    <p ><%= storyLocation %></p>
+    <hr>
   </li>
 </script>
 

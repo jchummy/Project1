@@ -2,8 +2,8 @@
 // require mongoose and other modules
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    bcrypt = require('bcrypt');
-    // Story = require('./story');
+    bcrypt = require('bcrypt'),
+    Story = require('./story');
 
 // define user schema
 var UserSchema = new Schema({
@@ -22,7 +22,7 @@ UserSchema.statics.createSecure = function (userData, callback) {
   // `this` references our schema
   // store it in variable `that` because `this` 
   // changes context in nested callbacks
-var that = this;
+ var that = this;
 
   // hash password user enters at sign up
   bcrypt.genSalt(function (err, salt) {
@@ -30,10 +30,10 @@ var that = this;
       console.log(hash);
 
       // create a new user with hashed password // save to database
-      that.create({
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        avatar: userData.avatar,
+        that.create({
+        // firstName: userData.firstName,
+        // lastName: userData.lastName,
+        // avatar: userData.avatar,
         email: userData.email,
         passwordDigest: hash
       }, callback);

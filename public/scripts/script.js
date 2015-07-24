@@ -10,44 +10,80 @@ var storiesController =  {
 // var testStories = [{description: "test story"},{description: "test story"}];
 ////// grab all stories
 
-template: _.template($("#storyTemplate").html()), //template
+storyTemplate: _.template($("#storyTemplate").html()), //template
+
 all: function() {
   $.get('/stories', function(data) {
     console.log(data);
     var allStories = data;
     _.each(allStories, function(story) {
       //apend the stories to appear on the page 
-      var $storyHTML = $(storiesController.template(story));
+      var $storyHTML = $(storiesController.storyTemplate(story));
       // console.log($storyHTML);
       $('#story-list').append($storyHTML);
       // console.log(allStories);
     }); 
-    storiesController.addEventHandlers();
+    // storiesController.addEventHandlers();
   });
 },
 
 ////// iterate 
  
-create: function(){
-      var $story = _.template( $("#storyTemplate").html() );
-        _.each(testStories, function(testStory) {
-          console.log(testStory);
-
-/////// append to page
-      $('#story-list').append($story(testStory));
+create: function (newStoryText, newStoryLevel, newStoryLocation) {
+  var storyData = {storyText: newStoryText, storyLevel:newStoryLevel, storyLocation:newStoryLocation};
+  console.log(storyData)
+  $.post('/stories', storyData, function(data) {
+    var $storyHTML = $(storiesController.storyTemplate(data));
+    $('#story-list').append($storyHTML);
     });
   },
 
-addEventHandlers: function() {
-  $("#story-form").on("submit", function(){
-    event.preventDefault()
-    console.log( "submitting form" )
-  });
-}
+// addEventHandlers: function() {
+//   $("#story-form").on("submit", function(){
+//     event.preventDefault()
+//     console.log( "submitting form" )
+//   } );
+// },
+
+
+// taras code
+setupView: function() {
+   //existing thoughts onto the page 
+   storiesController.all()
+
+   $('#story-form').on('submit', function(event) {
+     event.preventDefault();
+     var storyText = $('#storyText').val();
+     console.log(storyText);
+     var storyLevel = $('#storyLevel').val();
+     console.log(storyLevel);
+     var storyLocation = $('#storyLocation').val();
+     console.log(storyLocation);
+     storiesController.create(storyText, storyLevel, storyLocation);
+
+   });
+ }
+
+
+ // taras code end
+ // var $story-form
+
+
+//     // give story form an id to make it easy to select it 
+//     id=story-form
+//     // get story text from form
+
+//     // use .val to get value out of the form
+//     $("#story-form").val(),
+//     // ajax call to post a new story
+//     $.post()
+
+//   });
+// }
 
  }
 
-storiesController.all()
+storiesController.setupView()
 
 
 });
@@ -76,23 +112,6 @@ storiesController.all()
 
   // })
 
-//log in form 
-  // $('login-form').on("submit", function(event) {
-  //   var userData = {  
-  //     email:$("#login-user-email").val(),
-  //     password:("#login-user-password").val()
-  //   };
-  //  $.post('/login', function(response) {
-  //     console.log(response);
-  //  });
-  // });
-
-// when the page loads: check and chage login message
-// $get.('/currentuser', function(response) {
-//   // server responds with current user
-//   if response ===n null){
-//   //no one is logged in
-//   $("#loggedInMessage").html("You're definitely not logged in as " + user )
 
 //  }
 // })

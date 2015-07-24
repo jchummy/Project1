@@ -5,7 +5,10 @@ var mongoose = require('mongoose'),
 
 // define thoguhts schema
 var StorySchema = new Schema({
- storyText: String
+ storyText: String,
+ storyLevel: String,
+ storyLocation: String
+
 });
 
 

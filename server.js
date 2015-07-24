@@ -5,7 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var session = require('express-session');
-var Story = require('./models/story')
+var Story = require('./models/story');
+var User = require('./models/user');
 
 // connect to mongodb
 mongoose.connect(
@@ -61,16 +62,16 @@ app.get('/', function(req, res) {
 
 // OPEN THE API TO REQUESTS FROM ANY DOMAIN
 
-app.get('/', function(req, res) {
-  var index = __dirname + "/index.html";
-  res.sendFile(index);
-});
+// app.get('/', function(req, res) {
+//   var index = __dirname + "/index.html";
+//   res.sendFile(index);
+// });
 
 // LINES#QUERY GETTING ALL THE STORIES ONTO THE PAGE
 app.get('/stories', function(req, res) {
   // console.log(Story);
   Story.find(function (err, stories) {
-    res.json(stories)
+    res.json(stories);
   });
   // Story.find().sort('__id').exec(function(err, stories) {
 });
@@ -79,10 +80,12 @@ app.get('/stories', function(req, res) {
 app.post('/stories', function(req, res) {
   // SAVE LINE TO DB
   var newStory = new Story({
-    storyText: req.body.storyText
+    storyText: req.body.storyText,
+    storyLevel: req.body.storyLevel,
+    storyLocation: req.body.storyLocation
   });
 
-  newStory.save(function(err, savedStory) {
+  newStory.save(function (err, savedStory) {
     res.json(savedStory);
   });
 });
@@ -104,9 +107,9 @@ app.post('/stories', function(req, res) {
   //add stuff / delete only if user is logged in
 
 // 1. create user
-app.post('/api/users', function(req, res) {
+app.post('/users', function(req, res) {
   console.log("server recieved sign up form data: ", req.body.user);
-  
+  var newUser = req.body.user;
   User.createSecure(newUser, function (err, user) {
     // log user in automatically when created
     req.login(user);
@@ -116,30 +119,26 @@ app.post('/api/users', function(req, res) {
 });
 
 // 2. authenticate / login for user session
-// app.post('/login', function (req, res) {
-//   // from client;
-//   // var userData
-//   console.log("server recieved login form data: ", 
-//     req.body.email, req.body.password);
-//   // servers version of userdata
-//   var userData = {
-//     email: req.body.email,
-//     password: req.body.password
-//   };
-//   User.authenticate(userData.email, userData.password, function (req, res);
-//   if(user)
-//       req.login(user);
-//   //res.redirect('/profile');
-
-//       console.log("logged in")
-//       res.json(user);
-// } else {
-//       // find some way to handle 
-//       // whatever error came from the authentication code
-//       res.status(500).send(err);
-//     };
-//   });
-// });
+app.post('/login', function (req, res) {
+  // from client;
+  // var userData
+  console.log("server recieved login form data: ", req.body.user);
+  // servers version of userdata
+  var userData = req.body.user;
+  
+  User.authenticate(userData.email, userData.password, function (err, user) {
+    if (user) {
+      req.login(user);
+      // res.redirect('/profile');
+      console.log("logged in")
+      res.json(user);
+    } else {
+      // find some way to handle 
+      // whatever error came from the authentication code
+      res.status(500).send(err);
+    };
+  });
+});
 
 // 3. log out user 
 app.get('/logout', function (req, res) {
