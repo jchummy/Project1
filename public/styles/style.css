@@ -4,8 +4,35 @@ ul li {
 }
 
 
-/*login form css*/
-body {
+.jumbotron {
+  background-color: rgba(42, 30, 20, 0.4);;
+  text-align: center;
+  padding: 0.5em 0.6em;
+}
+
+.jumbotron p {
+  font-size: 1em;
+}
+
+.story {
+	    border-bottom: 1px solid #333;
+	    color: black;
+}
+
+.jumbotron {
+    background-image: url("http://cdn26.us2.fansshare.com/photo/wallpaperbackground/backgrounds-html-1511629460.jpg");
+    background-size: 100%;
+    vertical-align: center;
+    color: white;
+
+.
+
+
+
+
+
+/*/*login form css*/
+/*body {
 	background: #eee !important;	
 }
 
@@ -53,9 +80,5 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
-}
-
-.story {
-	    border-bottom: 1px solid #333;
-}
+}*/
 

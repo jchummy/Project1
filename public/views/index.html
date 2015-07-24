@@ -16,115 +16,118 @@
 
 <!-- /////////jumbotron -->
  <body>
-  <div class="container">
+<div class="container">
+  <div style="text-align: left;">
     <div class="jumbotron">
-  <h1>MyCrazyEx</h1>
-  <p> Have you ever been in a relationship with someone that was a tad bit on the crazy side? Anonymously share crazy stories about an ex-boyfriend or ex-girlfriend. </p>
-</div>
+    <h1>MyCrazyEx</h1>
+    <p> Have you ever been in a relationship with someone that was a tad bit on the crazy side? Anonymously share crazy stories about an ex-boyfriend or ex-girlfriend. </p>
+    </div>
+     
+</div> 
 
 <!-- JANES CODE -->
-<div class="row" style="text-align: center;">
+  <div class="row" style="text-align: center;">
   <div class="col-md-3">
 
     <!-- bootsnipp story form -->
-<form class="form-horizontal" id="story-form">
-<fieldset>
+    <form class="form-horizontal" id="story-form">
+    <fieldset>
 
-<!-- Form Name
-<legend>Share your story:</legend>
+    <!-- Form Name
+    <legend>Share your story:</legend>
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Description: </label>
-  <div class="controls">                     
-    <textarea id="storyText">Type here</textarea>
-  </div>
-</div>
+    <!-- Textarea -->
+    <form class="story-form">       
+          <h2 class="story-form-heading">Share</h2>
 
-<!-- Button Drop Down -->
-<div class="control-group">
-  <label class="control-label" for="buttondropdown">Psycho Level: </label>
-  <div class="controls">
-    <div class="input-append">
-      <input id="storyLevel" class="input-xlarge" placeholder="Select Level " type="text">
-      <div class="btn-group">
-        <button class="btn dropdown-toggle" data-toggle="dropdown">
-          Levels here 
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Weird</a></li>
-          <li><a href="#">Crazy</a></li>
-          <li><a href="#">Psycho</a></li>
-          <li><a href="#">Dangerously Psycho</a></li>
-        </ul>
+
+    <div class="control-group">
+      <label class="control-label" for="textarea"> Description: </label>
+      <div class="controls">                     
+        <input id="storyTexts" type="text" placeholder="Tell us your story" class="input-xlarge">
+        <!-- <textarea id="">Type story here</textarea> -->
       </div>
     </div>
-  </div>
-</div>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Your Location</label>
-  <div class="controls">
-    <input id="storyLocation" type="text" placeholder="San Francisco, CA" class="input-xlarge">
-    
-  </div>
-</div>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="singlebutton"></label>
-  <div class="controls">
-    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Post</button>
-  </div>
-</div>
-
-</fieldset>
- </form>
-<!-- end of bootsnipp story form -->
-
-    <!-- left side column (logo and form) -->     
-   <!--  <div id="storyForm">
-      <h1>Description of story:</h1>
-      <form id="submitStory">
- -->
-        <!-- comment form --> 
-        <!-- <div class="form-group">
-          <input type="text" class="form-control" id="storyText" placeholder=" My crazy ex..."_" " autofocus>
-        </div> -->
-        <!-- submit button -->
-        <!-- <div class="form-group">
-          <input type="submit" class="btn btn-success" value="Share your story">
+    <!-- Button Drop Down -->
+    <div class="control-group">
+      <label class="control-label" for="buttondropdown">Psycho Level: </label>
+      <div class="controls">
+        <div class="input-append">
+         <!--  <input id="storyLevel" class="input-xlarge" placeholder="Select Level " type="text"> -->
+          <div class="btn-group">
+            <!-- <button class="btn dropdown-toggle" data-toggle="dropdown"> -->
+              <!-- Select   -->
+              <!-- <span class="caret"></span> -->
+            </button>
+            <!-- <ul class="dropdown-menu"> -->
+             <!--  <li><a href="#">Weird</a></li>
+              <li><a href="#">Crazy</a></li>
+              <li><a href="#">Psycho</a></li>
+              <li><a href="#">Dangerously Psycho</a></li>
+            </ul> -->
+            <select class="form-control">
+                <option>Level 1: Weird</option>
+                <option>Level 2: Crazy</option>
+                <option>Level 3: Psycho</option>
+                <option>Level 4: Dangerously Psycho</option>
+            </select>
+          </div>
         </div>
-      </form>
-    </div> -->
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="control-group">
+      <label class="control-label" for="textinput">Your Location:</label>
+      <div class="controls">
+        <input id="storyLocation" type="text" placeholder="San Francisco, CA" class="input-xlarge">
+        
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="control-group">
+      <label class="control-label" for="singlebutton"></label>
+      <div class="controls">
+        <button id="singlebutton" name="singlebutton" class="btn btn-danger">Post</button>
+      </div>
+    </div>
+
+    </fieldset>
+     </form>
+<!-- end of bootsnipp story form -->
 <!-- end of left column -->
   </div>
+
     <div class="col-md-6">
 <!-- middle column with stories listed -->
-      <div class="row">
-        <div id="postedStories">
-          <h1> STORIES </h1>
-          <div id="story-list"></div>
-        </div>
+      <div id="postedStories">
+        <h1> S T O R I E S </h1>
+        <div id="story-list"></div>
       </div>   
     </div>
     <div class="col-md-3">
 <!-- Form for login on right column  -->
-      <div class="wrapper">
+      <!-- <div class="wrapper"> -->
         <form class="form-signin">       
-          <h2 class="form-signin-heading">Please login</h2>
+          <h2 class="form-signin-heading">Sign up</h2>
+          <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+          <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>   
+        </form>
+      <!-- </div> -->
+      <form class="form-signin">       
+          <h2 class="form-signin-heading">Login</h2>
           <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
           <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
           <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
         </form>
-      </div>
     </div>
 </div>
 
   </div>  
-
+   </div>
 <!-- underscore -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <!-- jQuery -->
