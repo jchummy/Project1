@@ -65,21 +65,7 @@ setupView: function() {
  }
 
 
- // taras code end
- // var $story-form
 
-
-//     // give story form an id to make it easy to select it 
-//     id=story-form
-//     // get story text from form
-
-//     // use .val to get value out of the form
-//     $("#story-form").val(),
-//     // ajax call to post a new story
-//     $.post()
-
-//   });
-// }
 
  }
 
@@ -89,31 +75,3 @@ storiesController.setupView()
 });
 
 
-
-  // $.get('/api/stories', function(data) {
-  //   var stories = data  
-
-  //   _.each(stories, function(story) {
-  //     console.log(story)
-  //     $('#stories').append($story(story))
-  //   })
-  // })
-
-  // $('#new-story').submit(function(e){
-  //   e.preventDefault();
-  //   console.log("im submitting a story")
-  //   var story = {
-  //     text: $('#story-text').val()
-  //   }
-  //   $.post('/api/stories', story, function(data) {
-  //     console.log(data)
-  //     $('#stories').prepend($story(data))
-  //   })
-
-  // })
-
-
-//  }
-// })
-//   });
-// });

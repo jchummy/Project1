@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
    Schema = mongoose.Schema;
 
 
-// define thoguhts schema
+// define story schema
 var StorySchema = new Schema({
  storyText: String,
  storyLevel: String,
@@ -12,6 +12,6 @@ var StorySchema = new Schema({
 });
 
 
-// create and export Thoughts model
+// create and export story model
 var Story = mongoose.model('Story', StorySchema); 
 module.exports = Story;

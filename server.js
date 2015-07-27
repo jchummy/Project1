@@ -58,14 +58,6 @@ app.use('/', function (req, res, next) {
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 });
-//////////
-
-// OPEN THE API TO REQUESTS FROM ANY DOMAIN
-
-// app.get('/', function(req, res) {
-//   var index = __dirname + "/index.html";
-//   res.sendFile(index);
-// });
 
 // LINES#QUERY GETTING ALL THE STORIES ONTO THE PAGE
 app.get('/stories', function(req, res) {
@@ -93,18 +85,6 @@ app.post('/stories', function(req, res) {
 
 
 
-
-// require express-session for authentication (stores current user)
-// var session = require('express-session');
-// var newUser = req.body.user;
-
-
-
-
-// AUTH routes:
-  // once we know who the current user is, we can change the 
-  //front end based on looking it up
-  //add stuff / delete only if user is logged in
 
 // 1. create user
 app.post('/users', function(req, res) {
@@ -147,16 +127,7 @@ app.get('/logout', function (req, res) {
   // res.redirect('/');
 });
 
-// see who the current user is
-// app.get('/currentUser', function (req, res) {
-//   console.log("sending current user");
-//   //check for current logged in user
-//   req.currentUser(funcion (err, user) {
-//     console.log("current user is ", user)
-//   // res.login(user);
-//   res.json(user);
-//   });
-// });
+
 
 // listen on port 3000
 app.listen(process.env.PORT || 3000, function() {
