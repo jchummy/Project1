@@ -27,7 +27,7 @@ all: function() {
   });
 },
 
-////// iterate 
+// iterate 
  
 create: function (newStoryText, newStoryLevel, newStoryLocation) {
   var storyData = {storyText: newStoryText, storyLevel:newStoryLevel, storyLocation:newStoryLocation};
